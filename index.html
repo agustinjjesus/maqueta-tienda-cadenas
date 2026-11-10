@@ -123,6 +123,7 @@
 
   .wa{position:fixed;right:16px;bottom:16px;z-index:30;display:inline-flex;align-items:center;gap:8px;background:#1f1b16;color:#fff;text-decoration:none;border-radius:999px;padding:12px 18px;box-shadow:0 10px 24px rgba(0,0,0,.25);font-weight:500;font-size:.9rem}
   .wa svg{width:20px;height:20px}
+  @media(max-width:600px){.wa{padding:14px}.wa-t{display:none}}
   .toast{position:fixed;left:50%;bottom:78px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#1f1b16;color:#fff;padding:11px 18px;border-radius:999px;font-size:.88rem;z-index:40;transition:.25s ease;max-width:calc(100% - 32px);text-align:center}
   .toast.show{opacity:1;transform:translate(-50%,0)}
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -290,7 +291,7 @@
 
 <a class="wa" href="#" aria-label="Consultar por WhatsApp">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7L4 20l1.5-4.2A8 8 0 1 1 20 11.5Z"/></svg>
-  Consultanos
+  <span class="wa-t">Consultanos</span>
 </a>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -347,7 +348,7 @@ function chainSVG(kind, opt = {}){
     L += sp.adv/2; idx++;
   }
   const w = ({singapur:2.4,tourbillon:3.4,figaro:2.4,forcet:2.6,veneciana:2.2,grumet:3}[kind] || 2.6) * s;
-  return `<svg viewBox="0 0 320 300" role="img" aria-label="Ilustración de cadena ${kind}">
+  return `<svg viewBox="26 24 268 178" role="img" aria-label="Ilustración de cadena ${kind}">
     <g fill="none" stroke-linecap="round" stroke-linejoin="round">
       <g stroke="#8a6420" stroke-width="${w.toFixed(2)}">${out}</g>
       <g stroke="#f1dc9d" stroke-width="${(w*0.42).toFixed(2)}">${out}</g>
@@ -362,7 +363,7 @@ function pendantSVG(){
 
 /* Hero y combo */
 document.getElementById('heroArt').innerHTML =
-  chainSVG('figaro', {scale:1.5}).replace('<svg ', '<svg class="ghost-chain" ') + chainSVG('singapur', {scale:1.7});
+  chainSVG('forcet', {scale:1.5}).replace('<svg ', '<svg class="ghost-chain" ') + chainSVG('figaro', {scale:1.9});
 document.getElementById('comboArt').innerHTML =
   `<div class="c">${chainSVG('forcet',{scale:1.2})}</div><div class="p">${pendantSVG()}</div>`;
 
