@@ -99,6 +99,12 @@
   .ob-sum small{color:var(--gold);font-weight:600}
   .ob-sum .more{color:var(--muted);font-weight:400;margin-left:6px}
   .send{white-space:nowrap}
+  @media(max-width:520px){
+    .ob-row{flex-wrap:wrap;gap:8px}
+    .ob-sum{flex:1 1 100%;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 10px}
+    .ob-sum b{display:inline}
+    .send{flex:1 1 100%}
+  }
 
   .toast{position:fixed;left:50%;bottom:96px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#1f1b16;color:#fff;padding:11px 18px;border-radius:999px;font-size:.88rem;z-index:40;transition:.25s ease;max-width:calc(100% - 32px);text-align:center}
   .toast.show{opacity:1;transform:translate(-50%,0)}
@@ -266,7 +272,7 @@ function whatsappURL(t){
 function render(){
   const t = totals();
   bar.hidden = t.qty === 0;
-  document.body.style.paddingBottom = t.qty ? '74px' : '';
+  document.body.style.paddingBottom = t.qty ? '130px' : '';
   if(!t.qty){ list.hidden = true; toggle.setAttribute('aria-expanded', 'false'); return; }
   $('obSum').textContent = `${t.qty} ${t.qty === 1 ? 'cadena' : 'cadenas'} · ${ARS(t.total)}`;
   $('obTr').textContent = `${ARS(trPrice(t.total))} con transferencia`;
