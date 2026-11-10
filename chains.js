@@ -62,3 +62,14 @@ function pendantSVG(){
     <path d="M30 8v72M10 30h40" stroke="#8a6420" stroke-width="10"/>
     <path d="M30 8v72M10 30h40" stroke="#f1dc9d" stroke-width="4"/></g></svg>`;
 }
+
+/* Si hay una foto real para la cadena, se muestra en lugar de la ilustracion. */
+function setPhoto(media, src, alt){
+  if(!media) return;
+  const img = new Image();
+  img.className = 'photo'; img.alt = alt || ''; img.loading = 'lazy'; img.decoding = 'async';
+  img.onload = () => media.classList.add('has-photo');
+  img.onerror = () => img.remove();
+  media.prepend(img);
+  img.src = src;
+}
