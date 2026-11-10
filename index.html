@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>NOMBRE · Cadenas para todos los días (maqueta)</title>
+<meta name="description" content="Maqueta de diseño de la tienda de cadenas. El nombre, los precios y los textos son de ejemplo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf7f2; --card:#ffffff; --ink:#1f1b16; --muted:#6b6358; --line:#e8e1d5;
+    --gold:#8a6420; --gold-soft:#f3e9d2; --dark:#1f1b16; --radius:18px;
+    --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
+  img,svg{display:block;max-width:100%}
+  a{color:inherit}
+  button{font:inherit;cursor:pointer}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+  .wrap{width:min(1160px,100% - 32px);margin-inline:auto}
+
+  .mock{background:#2b2620;color:#f3e9d2;font-size:.78rem;text-align:center;padding:7px 16px;letter-spacing:.02em}
+  .announce{background:var(--gold-soft);color:#4a3a14;font-size:.82rem;text-align:center;padding:9px 16px;font-weight:500}
+
+  .site-header{position:sticky;top:0;z-index:20;background:rgba(250,247,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+  .brand{font-family:var(--serif);font-weight:700;font-size:1.7rem;letter-spacing:.18em;text-decoration:none}
+  nav{display:none;gap:28px}
+  nav a{text-decoration:none;font-size:.92rem;color:var(--muted)}
+  nav a:hover{color:var(--ink)}
+  .cart{position:relative;display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid var(--line);border-radius:999px;padding:8px 14px;color:var(--ink)}
+  .cart svg{width:18px;height:18px}
+  .cart b{min-width:20px;height:20px;border-radius:999px;background:var(--dark);color:#fff;font-size:.72rem;display:grid;place-items:center;padding:0 6px}
+  @media(min-width:820px){nav{display:flex}}
+
+  .hero{padding:44px 0 36px}
+  .hero-grid{display:grid;gap:28px;align-items:center}
+  .eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 14px}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;margin:0}
+  h1{font-size:clamp(2.7rem,8vw,4.8rem);letter-spacing:-.01em}
+  .lead{font-size:1.06rem;color:var(--muted);max-width:46ch;margin:18px 0 26px}
+  .cta{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--dark);background:var(--dark);color:#fff;border-radius:999px;padding:13px 24px;font-weight:500;text-decoration:none;min-height:46px;transition:transform .15s ease, background .15s ease}
+  .btn:hover{transform:translateY(-1px);background:#3a322a}
+  .btn.ghost{background:transparent;color:var(--ink)}
+  .btn.ghost:hover{background:#efe8da}
+  .hero-art{position:relative;aspect-ratio:1/.92;border-radius:28px;background:radial-gradient(circle at 50% 38%, #fffdf8 0%, #f1e7d2 62%, #eadcc0 100%);border:1px solid var(--line);overflow:hidden}
+  .hero-art svg{position:absolute;inset:4% 6%;width:88%;height:92%;filter:drop-shadow(0 14px 16px rgba(120,84,18,.22))}
+  .hero-art .ghost-chain{opacity:.35;transform:scale(1.14) translateY(-4%);filter:blur(1.5px)}
+  @media(min-width:880px){.hero{padding:72px 0 56px}.hero-grid{grid-template-columns:1.05fr 1fr;gap:56px}}
+
+  .benefits{border-block:1px solid var(--line);background:#fffdf9}
+  .benefits ul{list-style:none;margin:0;padding:22px 0;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .benefits li{display:flex;gap:12px;align-items:flex-start;font-size:.9rem}
+  .benefits svg{flex:none;width:26px;height:26px;color:var(--gold)}
+  .benefits strong{display:block;font-weight:600}
+  .benefits span{color:var(--muted);font-size:.84rem}
+  @media(min-width:880px){.benefits ul{grid-template-columns:repeat(4,1fr);gap:28px}}
+
+  section{padding:56px 0}
+  .head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin-bottom:26px}
+  h2{font-size:clamp(2rem,5vw,3rem)}
+  .sub{color:var(--muted);margin:8px 0 0;max-width:52ch}
+  .chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font-size:.88rem;color:var(--ink);min-height:40px}
+  .chip.on{background:var(--dark);border-color:var(--dark);color:#fff}
+
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  @media(min-width:900px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+  .media{position:relative;aspect-ratio:1/1;background:radial-gradient(circle at 50% 35%, #fffdf8 0%, #f3e9d3 70%, #ecdfc3 100%)}
+  .media svg{position:absolute;inset:6%;width:88%;height:88%;filter:drop-shadow(0 8px 9px rgba(120,84,18,.2))}
+  .tag{position:absolute;left:10px;top:10px;background:#fff;border:1px solid var(--line);border-radius:999px;font-size:.7rem;padding:3px 10px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+  .info{padding:14px 14px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .info h3{font-size:1.32rem;line-height:1.1}
+  .len{display:flex;gap:6px;flex-wrap:wrap}
+  .len .chip{padding:5px 11px;font-size:.78rem;min-height:32px}
+  .price{display:flex;flex-direction:column;gap:2px;margin-top:auto}
+  .price strong{font-size:1.15rem;font-weight:600}
+  .price .tr{font-size:.82rem;color:var(--gold);font-weight:600}
+  .price .cu{font-size:.76rem;color:var(--muted)}
+  .add{width:100%;padding:11px 14px;font-size:.9rem}
+
+  .combo{background:var(--dark);color:#f6efe2;border-radius:28px;padding:30px 24px;display:grid;gap:26px;align-items:center}
+  .combo .eyebrow{color:#d7b869}
+  .combo p{color:#cfc4b0;max-width:48ch}
+  .combo .btn{background:#f6efe2;color:var(--dark);border-color:#f6efe2}
+  .combo-art{display:flex;align-items:center;justify-content:center;gap:18px;background:#2b2620;border-radius:20px;padding:20px;min-height:230px}
+  .combo-art .c{width:min(220px,58%)}
+  .combo-art .p{width:64px}
+  @media(min-width:880px){.combo{grid-template-columns:1.1fr 1fr;padding:48px}}
+
+  .ugc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .clip{aspect-ratio:9/14;border-radius:var(--radius);background:linear-gradient(160deg,#efe4cc,#e1d1ad);border:1px dashed #cdbb93;display:grid;place-items:center;text-align:center;padding:10px;color:#6d5a2c;font-size:.8rem}
+  .clip svg{width:38px;height:38px;margin:0 auto 6px}
+  .note{color:var(--muted);font-size:.85rem;margin-top:14px}
+
+  .faq{max-width:760px}
+  details{border-bottom:1px solid var(--line);padding:16px 2px}
+  summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:1.3rem;line-height:1;color:var(--gold)}
+  details[open] summary::after{content:"–"}
+  details p{margin:10px 0 0;color:var(--muted);max-width:62ch}
+  .tbc{font-style:italic;color:#9a7226}
+
+  footer{background:#17130f;color:#cfc4b0;padding:44px 0 90px;font-size:.88rem}
+  .fgrid{display:grid;gap:28px}
+  footer h4{margin:0 0 10px;color:#f6efe2;font-weight:600;font-size:.9rem}
+  footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+  footer a{text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  .pay{display:flex;flex-wrap:wrap;gap:8px}
+  .pay span{border:1px solid #3d352b;border-radius:8px;padding:4px 10px;font-size:.78rem}
+  .legal{border-top:1px solid #2d261f;margin-top:28px;padding-top:18px;font-size:.78rem;color:#9b917f}
+  @media(min-width:820px){.fgrid{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+
+  .wa{position:fixed;right:16px;bottom:16px;z-index:30;display:inline-flex;align-items:center;gap:8px;background:#1f1b16;color:#fff;text-decoration:none;border-radius:999px;padding:12px 18px;box-shadow:0 10px 24px rgba(0,0,0,.25);font-weight:500;font-size:.9rem}
+  .wa svg{width:20px;height:20px}
+  .toast{position:fixed;left:50%;bottom:78px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#1f1b16;color:#fff;padding:11px 18px;border-radius:999px;font-size:.88rem;z-index:40;transition:.25s ease;max-width:calc(100% - 32px);text-align:center}
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="mock">MAQUETA · el nombre, los precios, los textos y las imágenes son de ejemplo</div>
+<div class="announce">6 cuotas sin interés · 15% OFF por transferencia · Envío gratis desde $70.000</div>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#">NOMBRE</a>
+    <nav aria-label="Principal">
+      <a href="#cadenas">Cadenas</a>
+      <a href="#combo">Combos</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#faq">Ayuda</a>
+    </nav>
+    <button class="cart" id="cartBtn" type="button" aria-label="Carrito">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
+      Carrito <b id="cartCount">0</b>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Cadenas para todos los días</p>
+        <h1>Brillo justo.<br>Sin gritar.</h1>
+        <p class="lead">Cadenas finas y medianas, livianas y cómodas para llevar de la mañana a la noche. Diseños simples que combinan con todo.</p>
+        <div class="cta">
+          <a class="btn" href="#cadenas">Ver cadenas</a>
+          <a class="btn ghost" href="#faq">Cómo cuidarlas</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true" id="heroArt"></div>
+    </div>
+  </section>
+
+  <div class="benefits">
+    <div class="wrap">
+      <ul>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3 4 6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 3-6 6-10Z"/></svg>
+          <div><strong>Para el día a día</strong><span>Acero con baño PVD*</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div><strong>Garantía</strong><span>Por fallas de fábrica*</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
+          <div><strong>Envíos a todo el país</strong><span>Con código de seguimiento</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h3"/></svg>
+          <div><strong>Pagá como quieras</strong><span>6 cuotas sin interés o 15% OFF</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="cadenas">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <h2>Las cadenas</h2>
+          <p class="sub">Finas para sumar de a poco, medianas para destacar sin exagerar.</p>
+        </div>
+        <div class="chips" role="group" aria-label="Filtrar por grosor">
+          <button class="chip on" type="button" data-filter="all">Todas</button>
+          <button class="chip" type="button" data-filter="fina">Finas</button>
+          <button class="chip" type="button" data-filter="mediana">Medianas</button>
+        </div>
+      </div>
+      <div class="grid" id="grid"></div>
+      <p class="note">Las ilustraciones son de ejemplo: acá van tus fotos reales del producto, en mano y puestas.</p>
+    </div>
+  </section>
+
+  <section id="combo" style="padding-top:8px">
+    <div class="wrap">
+      <div class="combo">
+        <div>
+          <p class="eyebrow">Combo</p>
+          <h2>Cadena + dije,<br>10% OFF</h2>
+          <p>Elegí tu cadena y sumale un dije. Es la forma más fácil de armar un regalo o un look completo, y llevás las dos cosas en un solo envío.</p>
+          <a class="btn" href="#cadenas">Armar mi combo</a>
+        </div>
+        <div class="combo-art" id="comboArt" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="clientes">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <h2>Clientes reales</h2>
+          <p class="sub">Videos cortos de quienes ya las usan.</p>
+        </div>
+      </div>
+      <div class="ugc">
+        <div class="clip"><div><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Video de clienta<br>@usuario</div></div>
+        <div class="clip"><div><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Video de cliente<br>@usuario</div></div>
+        <div class="clip"><div><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Unboxing<br>@usuario</div></div>
+      </div>
+      <p class="note">Este espacio se llena con videos y reseñas verdaderas de clientes. No se inventan.</p>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top:8px">
+    <div class="wrap faq">
+      <div class="head"><h2>Preguntas frecuentes</h2></div>
+      <details open>
+        <summary>¿Se pueden mojar?</summary>
+        <p><span class="tbc">A confirmar con el proveedor.</span> Si se confirma que son resistentes al agua, acá va la respuesta con las recomendaciones de uso.</p>
+      </details>
+      <details>
+        <summary>¿Qué garantía tienen?</summary>
+        <p><span class="tbc">A confirmar por escrito.</span> Garantía por fallas de fábrica, con el plazo y el procedimiento de reclamo explicados paso a paso.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto tarda en llegar mi pedido?</summary>
+        <p><span class="tbc">Plazo a definir.</span> Enviamos a todo el país y te pasamos el código de seguimiento apenas despachamos.</p>
+      </details>
+      <details>
+        <summary>¿Cómo puedo pagar?</summary>
+        <p>Por transferencia con 15% OFF, o con tarjeta en hasta 6 cuotas sin interés.</p>
+      </details>
+      <details>
+        <summary>¿Cómo cuido mi cadena?</summary>
+        <p>Guardala en su bolsita, limpiala con un paño suave y seco, y evitá golpes y roces fuertes para que la terminación dure más.</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="#" style="color:#f6efe2">NOMBRE</a>
+        <p style="max-width:34ch">Cadenas para todos los días. Diseños simples, precio claro y atención por WhatsApp.</p>
+      </div>
+      <div>
+        <h4>Tienda</h4>
+        <ul><li><a href="#cadenas">Cadenas</a></li><li><a href="#combo">Combos</a></li><li><a href="#clientes">Clientes</a></li></ul>
+      </div>
+      <div>
+        <h4>Ayuda</h4>
+        <ul><li><a href="#faq">Preguntas frecuentes</a></li><li><a href="#">Envíos</a></li><li><a href="#">Cambios y garantía</a></li><li><a href="#">Botón de arrepentimiento</a></li></ul>
+      </div>
+      <div>
+        <h4>Medios de pago</h4>
+        <div class="pay"><span>Transferencia</span><span>Mercado Pago</span><span>Tarjetas</span></div>
+      </div>
+    </div>
+    <div class="legal">© NOMBRE · Maqueta de diseño. Defensa del consumidor: reclamos ante la autoridad de aplicación, datos del vendedor y botón de arrepentimiento, a completar antes de publicar.</div>
+  </div>
+</footer>
+
+<a class="wa" href="#" aria-label="Consultar por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.7 7L4 20l1.5-4.2A8 8 0 1 1 20 11.5Z"/></svg>
+  Consultanos
+</a>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const ARS = n => '$' + n.toLocaleString('es-AR');
+
+const products = [
+  {name:'Singapur fina',   kind:'singapur',  size:'fina',    price:36000, lengths:[45,50,60]},
+  {name:'Figaro 3x1 fina', kind:'figaro',    size:'fina',    price:36000, lengths:[45,50,60]},
+  {name:'Tourbillon fina', kind:'tourbillon',size:'fina',    price:36000, lengths:[45,50,60]},
+  {name:'Forcet fina',     kind:'forcet',    size:'fina',    price:34000, lengths:[45,50,60]},
+  {name:'Veneciana',       kind:'veneciana', size:'fina',    price:34000, lengths:[45,50]},
+  {name:'Singapur mediana',kind:'singapur',  size:'mediana', price:42000, lengths:[50,60], scale:1.35},
+  {name:'Tourbillon mediana',kind:'tourbillon',size:'mediana',price:44000,lengths:[50,60], scale:1.3},
+  {name:'Doble grumet mediana',kind:'grumet',size:'mediana', price:44000, lengths:[50,60], scale:1.15}
+];
+
+/* Dibuja una cadena con eslabones repartidos sobre una curva. Es solo ilustrativo. */
+function link(kind, i, s){
+  switch(kind){
+    case 'singapur':   return {adv:4.2*s, svg:`<path d="M${-2.4*s} ${-5.5*s}L${2.4*s} ${5.5*s}"/>`};
+    case 'tourbillon': return {adv:5.4*s, svg:`<path d="M${-3*s} ${-6.5*s}L${3*s} ${6.5*s}"/><path d="M${-0.2*s} ${-6.5*s}L${5.8*s} ${6.5*s}" opacity=".55"/>`};
+    case 'figaro':     return (i%4===3) ? {adv:17*s, svg:`<ellipse rx="${9.5*s}" ry="${3.6*s}"/>`} : {adv:6.5*s, svg:`<ellipse rx="${4.2*s}" ry="${3.4*s}"/>`};
+    case 'forcet':     return {adv:6.5*s, svg:(i%2===0) ? `<ellipse rx="${6.5*s}" ry="${3.8*s}"/>` : `<ellipse rx="${2*s}" ry="${3.8*s}"/>`};
+    case 'veneciana':  return {adv:7.6*s, svg:`<rect x="${-3.8*s}" y="${-3.8*s}" width="${7.6*s}" height="${7.6*s}" rx="${1.4*s}"/>`};
+    default:           return {adv:6.4*s, svg:`<ellipse rx="${7.6*s}" ry="${3.9*s}" transform="rotate(26)"/>`};
+  }
+}
+
+function chainSVG(kind, opt = {}){
+  const s = opt.scale || 1, A=[44,40], B=[276,40], C=[160,330];
+  const P = t => { const u=1-t; return [u*u*A[0]+2*u*t*C[0]+t*t*B[0], u*u*A[1]+2*u*t*C[1]+t*t*B[1]]; };
+  const N = 400, pts = [], cum = [0];
+  for(let i=0;i<=N;i++){
+    pts.push(P(i/N));
+    if(i) cum.push(cum[i-1] + Math.hypot(pts[i][0]-pts[i-1][0], pts[i][1]-pts[i-1][1]));
+  }
+  const total = cum[N];
+  const at = L => {
+    let i = 1; while(i < N && cum[i] < L) i++;
+    const f = (L-cum[i-1])/((cum[i]-cum[i-1]) || 1);
+    return {
+      x: pts[i-1][0] + (pts[i][0]-pts[i-1][0])*f,
+      y: pts[i-1][1] + (pts[i][1]-pts[i-1][1])*f,
+      ang: Math.atan2(pts[i][1]-pts[i-1][1], pts[i][0]-pts[i-1][0])*180/Math.PI
+    };
+  };
+  let L = 0, idx = 0, out = '';
+  for(;;){
+    const sp = link(kind, idx, s);
+    L += sp.adv/2; if(L > total) break;
+    const p = at(L);
+    out += `<g transform="translate(${p.x.toFixed(1)} ${p.y.toFixed(1)}) rotate(${p.ang.toFixed(1)})">${sp.svg}</g>`;
+    L += sp.adv/2; idx++;
+  }
+  const w = ({singapur:2.4,tourbillon:3.4,figaro:2.4,forcet:2.6,veneciana:2.2,grumet:3}[kind] || 2.6) * s;
+  return `<svg viewBox="0 0 320 300" role="img" aria-label="Ilustración de cadena ${kind}">
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <g stroke="#8a6420" stroke-width="${w.toFixed(2)}">${out}</g>
+      <g stroke="#f1dc9d" stroke-width="${(w*0.42).toFixed(2)}">${out}</g>
+    </g></svg>`;
+}
+
+function pendantSVG(){
+  return `<svg viewBox="0 0 60 90" aria-hidden="true"><g fill="none" stroke-linecap="round">
+    <path d="M30 8v72M10 30h40" stroke="#8a6420" stroke-width="10"/>
+    <path d="M30 8v72M10 30h40" stroke="#f1dc9d" stroke-width="4"/></g></svg>`;
+}
+
+/* Hero y combo */
+document.getElementById('heroArt').innerHTML =
+  chainSVG('figaro', {scale:1.5}).replace('<svg ', '<svg class="ghost-chain" ') + chainSVG('singapur', {scale:1.7});
+document.getElementById('comboArt').innerHTML =
+  `<div class="c">${chainSVG('forcet',{scale:1.2})}</div><div class="p">${pendantSVG()}</div>`;
+
+/* Grilla de productos */
+const grid = document.getElementById('grid');
+grid.innerHTML = products.map(p => `
+  <article class="card" data-size="${p.size}">
+    <div class="media">${chainSVG(p.kind, {scale:p.scale})}<span class="tag">${p.size === 'fina' ? 'Fina' : 'Mediana'}</span></div>
+    <div class="info">
+      <h3>Cadena ${p.name}</h3>
+      <div class="len" role="group" aria-label="Largo">
+        ${p.lengths.map((l,i)=>`<button type="button" class="chip${i===0?' on':''}">${l} cm</button>`).join('')}
+      </div>
+      <div class="price">
+        <strong>${ARS(p.price)}</strong>
+        <span class="tr">${ARS(Math.round(p.price*0.85))} con transferencia</span>
+        <span class="cu">6 cuotas de ${ARS(Math.round(p.price/6))} sin interés</span>
+      </div>
+      <button type="button" class="btn add">Agregar al carrito</button>
+    </div>
+  </article>`).join('');
+
+/* Interacciones de la maqueta */
+let count = 0;
+const countEl = document.getElementById('cartCount');
+const toast = document.getElementById('toast');
+let toastTimer;
+function say(msg){
+  toast.textContent = msg; toast.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+grid.addEventListener('click', e => {
+  const chip = e.target.closest('.len .chip');
+  if(chip){
+    chip.parentElement.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+    chip.classList.add('on'); return;
+  }
+  if(e.target.closest('.add')){
+    count++; countEl.textContent = count;
+    say('Agregada al carrito (es una maqueta)');
+  }
+});
+
+document.querySelectorAll('[data-filter]').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  const f = btn.dataset.filter;
+  grid.querySelectorAll('.card').forEach(c => { c.hidden = !(f === 'all' || c.dataset.size === f); });
+}));
+
+document.getElementById('cartBtn').addEventListener('click', () => say(count ? `Tenés ${count} en el carrito (maqueta)` : 'El carrito está vacío'));
+document.querySelectorAll('a[href="#"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+</script>
+</body>
+</html>
